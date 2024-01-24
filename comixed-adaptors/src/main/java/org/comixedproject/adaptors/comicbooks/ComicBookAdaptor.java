@@ -19,6 +19,7 @@
 package org.comixedproject.adaptors.comicbooks;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Optional;
 import lombok.NonNull;
@@ -159,8 +160,7 @@ public class ComicBookAdaptor {
           sourceArchive.openArchiveForRead(comicBook.getComicDetail().getFilename());
 
       final String temporaryFilename =
-          File.createTempFile(
-                  "comixed", targetArchiveType.getExtension(), FileUtils.getTempDirectory())
+          Files.createTempFile(FileUtils.getTempDirectory().toPath(), "comixed", targetArchiveType.getExtension()).toFile()
               .getAbsolutePath();
 
       final ArchiveWriteHandle writeHandle =
