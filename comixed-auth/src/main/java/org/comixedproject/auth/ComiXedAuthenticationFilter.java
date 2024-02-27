@@ -73,7 +73,7 @@ public class ComiXedAuthenticationFilter extends OncePerRequestFilter {
       var credentials = new String(credDecoded, StandardCharsets.UTF_8);
 
       String[] userDetails = credentials.split(":", 2);
-      if (!userDetails[0].equals(USER_PREFIX)) {
+      if (!USER_PREFIX.equals(userDetails[0])) {
         username = userDetails[0];
         password = this.genericUtilitiesAdaptor.createHash(userDetails[1].getBytes());
       }

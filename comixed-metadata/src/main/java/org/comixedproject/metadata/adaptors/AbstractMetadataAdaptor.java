@@ -78,7 +78,7 @@ public abstract class AbstractMetadataAdaptor implements MetadataAdaptor {
       throws MetadataException {
     String issue = issueNumber;
     while (!issue.isEmpty()
-        && !issue.equals("0")
+        && !"0".equals(issue)
         && "123456789%ABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(issue.toUpperCase().substring(0, 1))
             == -1) {
       issue = issue.substring(1);

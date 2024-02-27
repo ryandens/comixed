@@ -728,7 +728,7 @@ public class ComicDetailService {
     }
 
     Sort.Direction direction = Sort.Direction.DESC;
-    if (sortDirection.equals("asc")) {
+    if ("asc".equals(sortDirection)) {
       direction = Sort.Direction.ASC;
     }
     return Sort.by(direction, fieldName);

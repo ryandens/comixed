@@ -339,7 +339,7 @@ public class ComicDetail {
     log.trace("Setting issue number=" + issueNumber);
     if ((issueNumber != null) && issueNumber.startsWith("0")) {
       log.trace("Removing leading 0s from issue number");
-      while (issueNumber.startsWith("0") && !issueNumber.equals("0")) {
+      while (issueNumber.startsWith("0") && !"0".equals(issueNumber)) {
         issueNumber = issueNumber.substring(1);
       }
     }
