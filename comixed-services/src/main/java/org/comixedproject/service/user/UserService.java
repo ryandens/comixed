@@ -76,7 +76,7 @@ public class UserService {
       final String email, final String propertyName, final String propertyValue)
       throws ComiXedUserException {
     String value = propertyValue;
-    if (propertyName.equals(IMPORT_ROOT_DIRECTORY)) {
+    if (IMPORT_ROOT_DIRECTORY.equals(propertyName)) {
       log.trace("Normalizing import root directory");
       value = FilenameUtils.normalize(propertyValue);
     }
