@@ -64,6 +64,7 @@
     </sonar.exclusions>
     <sonar.test.inclusions>**/test/**</sonar.test.inclusions>
     <spring-plugin.version>2.0.0.RELEASE</spring-plugin.version>
+    <versions.java-security-toolkit>1.2.0</versions.java-security-toolkit>
   </properties>
   <profiles>
     <profile>
@@ -494,4 +495,13 @@
     <module>comixed-metadata-comicvine</module>
     <module>comixed-release</module>
   </modules>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.github.pixee</groupId>
+        <artifactId>java-security-toolkit</artifactId>
+        <version>${versions.java-security-toolkit}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>
