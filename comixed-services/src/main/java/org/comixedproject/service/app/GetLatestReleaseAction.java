@@ -23,6 +23,8 @@ import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.io.FeedException;
 import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.IOException;
 import java.net.URL;
 import lombok.Getter;
@@ -48,7 +50,7 @@ public class GetLatestReleaseAction {
    * @return the latest release details
    */
   public LatestReleaseDetails execute() {
-    try (XmlReader reader = new XmlReader(new URL(this.getUrl()))) {
+    try (XmlReader reader = new XmlReader(Urls.create(this.getUrl(), Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS))) {
       final SyndFeed feed = new SyndFeedInput().build(reader);
       log.debug("Loaded feed: {}", feed.getTitle());
       if (!feed.getEntries().isEmpty()) {
